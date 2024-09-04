@@ -1,90 +1,63 @@
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro */
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
-
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro para sobreposição */
     display: flex;
     align-items: center;
     justify-content: center;
-
     z-index: 999;
 }
 
-.modal-overlay .modal-body {
+.modal-body {
     background-color: white;
     padding: 32px;
-    height: auto;
-    width: 50%;
+    width: 400px; /* Dimensão mais controlada */
     border-radius: 16px;
-
-    display: flex;
-    align-items: center; /* Centraliza todos os elementos dentro do modal */
-    flex-direction: column;
-    justify-content: center; /* Centraliza verticalmente */
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.modal-overlay .modal-body h2 {
-    font-size: 28px;
+.modal-body h2 {
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 24px;
-    text-align: center; /* Centraliza o texto */
-    color: #000; /* Certifica-se de que a cor seja preta */
+    color: #333; /* Contraste maior no título */
+    text-align: center;
 }
 
-.modal-overlay .modal-body .input-container {
-    width: 100%;
-    margin-bottom: 16px;
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Espaçamento uniforme */
 }
 
-.modal-overlay .modal-body input {
+.input-container input {
     padding: 12px;
-    border: 1px solid #ccc;
-    color: rgba(0, 0, 0, 0.9);
-    font-size: 16px;
-    line-height: 24px;
     border-radius: 8px;
-    width: 100%;
-    margin-bottom: 16px;
-    transition: border-color 0.3s;
-    background-color: #f9f9f9;
-}
-
-.modal-overlay .modal-body input:focus {
-    border-color: #0275d8;
-    outline: none;
-}
-
-.modal-overlay .modal-body label {
-    color: #333;
-    font-weight: 600;
-    margin-bottom: 8px;
+    border: 1px solid #ccc; /* Borda mais clara */
     font-size: 16px;
+    background-color: #f5f5f5; /* Leve fundo para destacar */
+    color: #333; /* Cor escura para melhor contraste */
 }
 
-.modal-overlay .modal-body .btn-secondary {
+.modal-body label {
+    color: #333; /* Cor mais escura para o texto */
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.btn-secondary {
     background-color: #0275d8;
     color: white;
-    font-weight: bold;
-    width: auto;
-    padding: 12px 24px; /* Aumenta o padding para manter boa proporção */
+    font-size: 16px;
+    padding: 12px;
     border-radius: 8px;
-    margin-top: 32px;
+    width: 100%;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-
-    /* Garante centralização do botão */
-    align-self: center;
+    margin-top: 24px;
 }
 
-.modal-overlay .modal-body .btn-secondary:hover {
+.btn-secondary:hover {
     background-color: #025aa5;
-    transform: scale(1.05);
 }
 
-.modal-overlay .modal-body .btn-secondary:active {
-    transform: scale(1);
-}

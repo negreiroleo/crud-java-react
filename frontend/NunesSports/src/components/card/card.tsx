@@ -1,19 +1,23 @@
 import './card.css';
+import { ProductData } from '../../interface/ProductData';
 
 interface CardProps {
-    price: number;
-    name: string;
-    description: string;
-    image: string;
+    product: ProductData;
+    onEdit: () => void;
+    onDelete: () => void;
 }
 
-export function Card({ price, image, name, description }: CardProps) {
+export function Card({ product, onEdit, onDelete }: CardProps) {
+    const { name, price, image, description } = product;
+
     return (
         <div className="card">
-            <img src={image} alt="" />
+            <button className="delete-button" onClick={onDelete}>X</button>
+            <img src={image} alt={name} />
             <h2>{name}</h2>
-            <p className='description'>{description}</p>
-            <p><b>Valor:</b>{price}</p>
+            <p>{description}</p>
+            <p><b>Preço:</b> R$ {price}</p>
+            <button className="edit-button" onClick={onEdit}>Editar</button>
         </div>
     );
 }

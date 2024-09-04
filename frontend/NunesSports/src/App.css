@@ -1,39 +1,35 @@
-body {
-  background-color: #ffffff; /* Fundo branco */
-  margin: 0; /* Remove qualquer margem padrão */
-  padding: 0; /* Remove qualquer padding padrão */
-}
-
 .container {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  width: 100vw
-  
+  width: 100vw;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 40px;
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
-.container button {
+.new-button {
   background-color: #0275d8;
   color: white;
   font-weight: bold;
   position: fixed;
   bottom: 16px;
   right: 24px;
-  transition: all 0.1s linear 0.1s;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.container button:hover {
-  box-shadow: rgba(217, 217, 221, 0.2) 0px 7px 7px 0px;
-  transform: scale(1.1);
-}
-
-h1 {
-  color: #000000;
+.new-button:hover {
+  background-color: #025aa5;
 }
