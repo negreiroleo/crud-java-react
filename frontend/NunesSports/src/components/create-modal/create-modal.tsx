@@ -33,18 +33,18 @@ export function CreateModal({ closeModal, productData }: ModalProps) {
 
     const submit = () => {
         const product: ProductData = {
-            id: productData?.id, // Incluímos ID apenas na edição
+            id: productData?.id, // Se houver um ID, será tratado como edição
             name,
             price,
             image,
             description
         };
-        mutate(product);
+
+        mutate(product); // Mutate irá enviar tanto criação quanto atualização
     };
 
     useEffect(() => {
-        if (!isSuccess) return;
-        closeModal(); // Fecha o modal após a operação
+        if (isSuccess) closeModal(); // Fecha o modal após o sucesso
     }, [isSuccess]);
 
     return (

@@ -1,28 +1,25 @@
-import axios, {AxiosPromise} from "axios";
+import axios, { AxiosPromise } from "axios";
 import { ProductData } from "../interface/ProductData";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "http://localhost:8080/product";
 
 const postData = async (data: ProductData): AxiosPromise<any> => {
-    try {
-        const response = axios.post(`${API_URL}/product`, data);
-        return response;
-    } catch (error) {
-        console.error("Error fetching product data:", error);
-        throw error;
+    // Se houver um ID, enviamos a requisição de atualização (PUT)
+    if (data.id) {
+        return axios.put(`${API_URL}/${data.id}`, data); // PUT para atualizar
+    } else {
+        return axios.post(API_URL, data); // POST para criar
     }
-}
+};
 
 export function useProductDataMutate() {
     const queryClient = useQueryClient();
-    const mutate = useMutation({
+
+    return useMutation({
         mutationFn: postData,
-        retry: 2,
         onSuccess: () => {
-            queryClient.invalidateQueries('product-data');
+            queryClient.invalidateQueries("product-data"); // Atualiza a lista de produtos
         }
     });
-
-    return mutate;
 }
