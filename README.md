@@ -5,7 +5,7 @@ Este projeto implementa um CRUD completo de produtos usando **Spring Boot + Post
 - `backend/`: Contém a API construída com **Java**, **Spring Boot**, e **PostgreSQL**.
 - `frontend/`: Contém a interface de usuário construída com **React** e **Vite**.
 
-![Exemplo de Imagem](https://github.com/negreiroleo/crud-java-react/exemplo.png)
+![Exemplo de Imagem](https://github.com/negreiroleo/crud-java-react/blob/main/exemplo.png)
 
 ## Pré-requisitos
 
